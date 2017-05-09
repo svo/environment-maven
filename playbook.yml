@@ -1,0 +1,21 @@
+---
+- hosts: all
+
+  pre_tasks:
+
+    - name: Add OpenJDK repository
+      apt_repository: repo="ppa:openjdk-r/ppa" update_cache=yes
+      become: yes
+      tags:
+      - maven
+      - test
+
+    - name: Install OpenJDK 8
+      apt: pkg=openjdk-8-jre
+      become: yes
+      tags:
+      - maven
+      - test
+
+  roles:
+     - .

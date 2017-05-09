@@ -1,0 +1,7 @@
+
+    - name: Install Maven 3
+      apt: pkg=maven
+      become: yes
+      tags:
+      - maven
+      - development
